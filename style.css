@@ -1,0 +1,290 @@
+body {
+  background-color: #f5f0e6;
+  background-image: url('path/to/vintage-texture.jpg');
+  background-size: cover;
+}
+
+.timeline-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+  
+  /* Main Heading */
+  h1 {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    z-index: 1000;
+  }
+  
+  .sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Dark blue gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .sidebar button:hover {
+    background: linear-gradient(135deg, #2a5298, #1e3c72); /* Reverse gradient */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  }
+  
+  
+  
+  /* Map and Timeline Containers */
+  #map-container, #timeline-container {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  
+  #map-container {
+    display: block;
+    flex-direction: column;
+  }
+  
+  #timeline-container {
+    display: none;
+  }
+  
+  /* Map and Country Details */
+  /* Map border */
+  #map {
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    height: 500px;
+    width: 100%;
+}
+
+/* Tooltip styling for markers */
+.leaflet-tooltip {
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+  
+  #country-details {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #details-content {
+    font-size: 16px;
+  }
+  
+  .timeline-image {
+    border: 5px solid rgba(46, 51, 63, 0.8); /* Darker border */
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  }
+  
+  .timeline-image:hover {
+    transform: scale(1.1); /* Larger zoom effect for more emphasis */
+    border-color: rgba(255, 87, 34, 0.8); /* Bright orange border for hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow for hover */
+  }
+  
+  
+  
+  .sidebar button {
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .sidebar button:hover {
+    background-color: #2e8b57;
+    transform: scale(1.05);
+  }
+  
+  .leaflet-popup-content-wrapper {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 14px;
+  }
+  .leaflet-popup-content {
+    padding: 10px;
+  }
+  .leaflet-popup-tip {
+    background: #f9f9f9;
+  }
+  .timeline-event {
+    opacity: 0;  /* Start hidden */
+    transform: translateY(30px);  /* Positioned slightly downward */
+    transition: all 0.5s ease-out;  /* Smooth transition */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+  }
+  /* Color-coded backgrounds for timeline events */
+.timeline-event:nth-child(odd) {
+  background: linear-gradient(135deg, #ffebcc, #ffd3b6);
+}
+
+.timeline-event:nth-child(even) {
+  background: linear-gradient(135deg, #d6f6ff, #b3e6ff);
+}
+  
+  .timeline-event.show {
+    opacity: 1;  /* Fully visible */
+    transform: translateY(0);  /* Moves to original position */
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #232526, #414345); /* Dark grey gradient */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbar a:hover {
+    background: linear-gradient(135deg, #414345, #232526); /* Reverse gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    transform: scale(1.1);
+  }
+  
+  
+  
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  
+
+ /* Container for the two-column layout */
+.timeline-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #333944, #445566); /* Dark gradient background */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Timeline Content */
+.timeline-content {
+  flex: 2;
+  margin-right: 20px;
+  background: linear-gradient(135deg, #ffb347, #ffcc33); /* Warm gradient background */
+  padding: 15px;
+  border-radius: 8px;
+  color: #333; /* Ensure readable text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Facts Box Styling */
+.facts-box {
+  flex: 1;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371); /* Vibrant gradient background */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for effect */
+  font-size: 16px;
+}
+
+
+.facts-box h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.facts-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.facts-box li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.facts-box li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+  font-size: 20px;
+}
+
+/* Optional: Make the facts box sticky */
+.facts-box {
+  position: sticky;
+  top: 20px;
+}
+
+/* Hide the facts box in the explore section */
+#map-container #timeline-facts-box {
+  display: none;
+}
+
+/* Hide the facts box by default */
+#timeline-facts-box {
+  display: none;
+}
+
+

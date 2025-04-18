@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World War II Map</title>
+
+    <!-- Link to your custom CSS (No changes to your existing CSS) -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="wp.css" />
+
+    <!-- Bootstrap CSS (added for utilities/components without affecting current design) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS (added for utility classes and styling without interfering with your custom styles) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.24/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#timeline-container">Timeline</a>
+      <a href="#map-container">Explore Map</a>
+    </div>
+    
+    <h1 class="text-center bg-light p-4 rounded">World War II Allies and Axis Countries</h1>
+
+    <!-- Sidebar with Bootstrap buttons -->
+    <div class="sidebar">
+      <button id="timeline-btn" class="btn btn-success w-100 mb-2">Timeline</button>
+      <button id="explore-btn" class="btn btn-primary w-100 mb-2">Explore</button>
+      <button id="reset-map-btn" class="btn btn-danger w-100 mb-2">Reset Map</button> <!-- Added reset button -->
+    </div>
+
+    <div id="timeline-container">
+      <h2>World War II Timeline</h2>
+
+      <!-- Pre-War Events -->
+      <p><strong>Pre-War Events (1918-1939)</strong></p>
+      <img src="https://encyclopedia.ushmm.org/images/large/dd15d79e-5f9c-4588-a3f2-cbc077cc8f0e.jpg" alt="Pre-War Events Image" class="timeline-image">
+      <ul>
+        <li>1918: Treaty of Versailles ends World War I, imposing harsh penalties on Germany</li>
+        <li>1933: Adolf Hitler becomes Chancellor of Germany, begins to rearm and pursue aggressive expansion</li>
+        <li>1935: Germany remilitarizes the Rhineland, violating Treaty of Versailles</li>
+        <li>1936: Italy invades Ethiopia</li>
+        <li>1937: Japan invades China</li>
+        <li>1938: Germany annexes Austria, Czechoslovakia</li>
+        <li>1939: Germany invades Poland, prompting declarations of war by France and the United Kingdom</li>
+      </ul>
+    
+      <!-- Early War -->
+      <div class="timeline-event">   
+        <p><strong>Early War (1939-1941)</strong></p>
+        <img src="https://media.defense.gov/2020/Jul/27/2002465091/825/780/0/200727-O-ZZ999-004.JPG" alt="Early War Image" class="timeline-image">
+        <ul>
+          <li>September 1939: Germany invades Poland</li>
+          <li>May 1940: Germany invades France, Belgium, the Netherlands, and Luxembourg</li>
+          <li>June 1940: Italy declares war on France and the United Kingdom</li>
+          <li>July 1940: Germany begins bombing British cities</li>
+          <li>December 1940: Japan signs Tripartite Pact with Germany and Italy</li>
+          <li>June 1941: Germany launches Operation Barbarossa, invading the Soviet Union</li>
+        </ul>
+      </div>
+
+      <!-- Mid-War -->
+      <div class="timeline-event"> 
+        <p><strong>Mid-War (1941-1943)</strong></p>
+        <img src="https://media.defense.gov/2020/Jul/28/2002466140/825/780/0/200728-N-ZZ999-001.JPG" alt="Mid-War Image" class="timeline-image">
+        <ul>
+          <li>December 1941: Japan attacks Pearl Harbor, drawing the United States into the war</li>
+          <li>1942: Germany and Italy suffer defeats in North Africa and the Soviet Union</li>
+          <li>1943: Allies gain control of North Africa and Italy, Germany begins to lose ground</li>
+        </ul>
+      </div>
+
+      <!-- Late War -->
+      <div class="timeline-event"> 
+        <p><strong>Late War (1943-1945)</strong></p>
+        <img src="https://imgs.search.brave.com/xHJa6b_9PTIwUlQ_5i9UGiXWuONb43Wpf6ZhtzRVJ64/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy81/LzU0L0F0b21pY19i/b21iaW5nX29mX0ph/cGFuLmpwZw" alt="Late War Image" class="timeline-image">
+        <ul>
+          <li>1944: Allies invade Normandy (D-Day), begin pushing Germans back in Western Europe</li>
+          <li>1944: Soviet Union advances on Germany’s eastern front</li>
+          <li>1945: Allies capture Berlin, Germany surrenders</li>
+          <li>April-May 1945: Soviet Union captures Vienna, Austria and Prague, Czechoslovakia</li>
+          <li>August 1945: United States drops atomic bombs on Hiroshima and Nagasaki, Japan surrenders</li>
+        </ul>
+      </div>
+
+      <!-- Aftermath -->
+      <div class="timeline-event">
+        <p><strong>Aftermath</strong></p>
+        <img src="https://imgs.search.brave.com/XZuqLIlSugz00uXAE_OYlRiANDgaicjygB0TWvswE80/rs:fit:860:0:0:0/g:ce/aHR0cDovL2xnaW1h/Z2VzLnMzLmFtYXpv/bmF3cy5jb20vZGF0/YS9pbWFnZW1hbmFn/ZXIvMjA0NjkvZ2Vu/ZXJhbF9kb3VnbGFz/X21hY2FydGh1cl9h/bmRfZW1wZXJvcl9o/aXJvaGl0by5qcGc" alt="Aftermath Image" class="timeline-image">
+        <ul>
+          <li>1945: World War II officially ends with the surrender of Germany and Japan</li>
+          <li>Estimated 20 million soldiers and 40 million civilians killed during the war.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="facts-box" id="timeline-facts-box" style="display: none;">
+      <h3>Did You Know?</h3>
+      <ul id="facts-list">
+        <li>Loading fact...</li>
+      </ul>
+      <button id="next-fact-btn" class="btn btn-info">Next Fact</button>
+    </div>
+
+    <!-- Map Container with Bootstrap & Tailwind styling -->
+    <div id="map-container" class="mt-4">
+      <div class="phase-buttons">
+        <button id="phase-1-btn" class="btn btn-warning">Early War</button>
+        <button id="phase-2-btn" class="btn btn-warning">War Advances</button>
+        <button id="phase-3-btn" class="btn btn-warning">Aftermath</button>
+      </div>
+      
+      <div id="map" class="w-full h-96 bg-gray-100 border rounded-md"></div>
+      
+      <div id="country-details" class="mt-4">
+        <h2>Country Details</h2>
+        <p id="details-content">Click on a country to see its details here.</p>
+      </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Your custom JS (No changes to your existing JS) -->
+    <script src="script.js" defer></script>
+
+    <!-- Bootstrap JS (Added for any Bootstrap components you want to use, like modals or tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
